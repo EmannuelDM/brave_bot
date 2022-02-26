@@ -19,8 +19,8 @@ def make_money():
             with pyautogui.hold('ctrl'):
                 pyautogui.press(['t'])
             # Moves mouse to coordinates X and Y , with time_delay
-            random_mul = random.randrange(1, 5)
-            pyautogui.moveTo(random_mul * 100, random_mul * 100, 2)
+            random_mul = random.randrange(50, 800)
+            pyautogui.moveTo(random_mul, random_mul, 2)
         # Close 10 tabs
         for i in range(10):
             # Wait between 3 and 6 seconds for each tab to close
@@ -29,8 +29,8 @@ def make_money():
             with pyautogui.hold('ctrl'):
                 pyautogui.press(['w'])
                 # Moves mouse to coordinates X and Y , with time_delay
-                random_mul = random.randrange(0, 10)
-                pyautogui.moveTo(random_mul * 100, random_mul * 100, 2)
+                random_mul = random.randrange(50, 800)
+                pyautogui.moveTo(random_mul, random_mul, 2)
 
 
 # Press the green button in the gutter to run the script.
