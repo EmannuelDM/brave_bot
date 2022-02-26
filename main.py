@@ -7,7 +7,8 @@ import time
 
 
 def make_money():
-    print("Waiting 5 seconds before the proces")
+    print("Waiting 8 seconds before the proces")
+    time.sleep(8)
     # Infinite execution
     while True:
         # Open 10 tabs
