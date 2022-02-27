@@ -4,33 +4,41 @@
 import pyautogui as pyautogui
 import random
 import time
+from constants import *
+
+def random_mouse_movements():
+    number_of_moves = random.randrange(MIN_MOVEMENTS, MAX_MOVEMENTS)
+    for i in range(number_of_moves):
+        # Moves mouse to coordinates X and Y , with time_delay
+        x = random.randrange(MIN_X_PIXELS, MAX_X_PIXELS)
+        y = random.randrange(MIN_Y_PIXELS, MAX_Y_PIXELS)
+        pyautogui.moveTo(x, y, 2)
+
+def random_wait():
+    time_delay = random.randrange(MIN_WAIT, MAX_WAIT)
+    time.sleep(time_delay)
 
 
 def make_money():
-    print("Waiting 8 seconds before the proces")
+    print("Waiting 8 seconds before the process")
     time.sleep(8)
     # Infinite execution
     while True:
+        number_of_tabs = random.randrange(MIN_NUMBER_TABS, MAX_NUMBER_TABS)
         # Open 10 tabs
-        for i in range(10):
-            # Wait between 8 and 15 seconds for each tab to open
-            time_delay = random.randrange(8, 15)
-            time.sleep(time_delay)
+        for i in range(number_of_tabs):
+            random_wait()
             with pyautogui.hold('ctrl'):
                 pyautogui.press(['t'])
-            # Moves mouse to coordinates X and Y , with time_delay
-            random_mul = random.randrange(50, 1200)
-            pyautogui.moveTo(random_mul, random_mul, 2)
+            random_mouse_movements()
         # Close 10 tabs
-        for i in range(10):
-            # Wait between 3 and 6 seconds for each tab to close
-            time_delay = random.randrange(3, 6)
-            time.sleep(time_delay)
+        for i in range(number_of_tabs):
+            random_wait()
             with pyautogui.hold('ctrl'):
                 pyautogui.press(['w'])
-                # Moves mouse to coordinates X and Y , with time_delay
-                random_mul = random.randrange(50, 1200)
-                pyautogui.moveTo(random_mul, random_mul, 2)
+                random_mouse_movements()
+        time_delay = random.randrange(MIN_SLEEP_TIME, MAX_SLEEP_TIME)
+        time.sleep(time_delay)
 
 
 # Press the green button in the gutter to run the script.
